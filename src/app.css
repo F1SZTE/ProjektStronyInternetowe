@@ -1,0 +1,190 @@
+```css
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0f111a;
+  color: #f1f1f5;
+}
+
+main {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 30px;
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 30px;
+  color: #a78bfa;
+}
+
+input,
+select {
+  padding: 12px 15px;
+  margin: 0 10px 20px 0;
+  border: 1px solid #34364a;
+  border-radius: 8px;
+  background: #1b1d2b;
+  color: white;
+  font-size: 15px;
+  outline: none;
+}
+
+input {
+  min-width: 220px;
+}
+
+input:focus,
+select:focus {
+  border-color: #8b5cf6;
+}
+
+button {
+  padding: 11px 17px;
+  margin: 5px;
+  border: none;
+  border-radius: 7px;
+  background: #7c3aed;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #6d28d9;
+  transform: translateY(-2px);
+}
+
+main > button {
+  margin-bottom: 20px;
+  background: #16a34a;
+}
+
+main > button:hover {
+  background: #15803d;
+}
+
+article {
+  display: inline-block;
+  vertical-align: top;
+  width: calc(33.333% - 14px);
+  min-height: 190px;
+  margin: 7px;
+  padding: 22px;
+  border: 1px solid #2b2d40;
+  border-radius: 12px;
+  background: #191b29;
+  transition: 0.2s;
+}
+
+article:hover {
+  border-color: #8b5cf6;
+  transform: translateY(-4px);
+}
+
+article h2 {
+  margin-top: 0;
+  color: #c4b5fd;
+  font-size: 21px;
+}
+
+article p {
+  color: #b0b2c3;
+  margin-bottom: 20px;
+}
+
+article button:last-child {
+  background: #dc2626;
+}
+
+article button:last-child:hover {
+  background: #b91c1c;
+}
+
+main > p {
+  color: #b0b2c3;
+  font-size: 17px;
+}
+
+/* Okno dialogowe */
+.dialog-background {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: #000a;
+  backdrop-filter: blur(5px);
+}
+
+.dialog {
+  width: 100%;
+  max-width: 420px;
+  padding: 28px;
+  border: 1px solid #39324f;
+  border-radius: 14px;
+  background: #191b29;
+  box-shadow: 0 20px 60px #0008;
+}
+
+.dialog h2 {
+  margin-top: 0;
+  color: #c4b5fd;
+}
+
+.dialog p {
+  color: #c5c6d3;
+  line-height: 1.5;
+}
+
+.dialog-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.dialog-buttons button:first-child {
+  background: #34364a;
+}
+
+.dialog-buttons button:first-child:hover {
+  background: #45475d;
+}
+
+@media (max-width: 800px) {
+  main {
+    margin: 15px auto;
+    padding: 20px;
+  }
+
+  article {
+    width: calc(50% - 14px);
+  }
+}
+
+@media (max-width: 550px) {
+  h1 {
+    font-size: 28px;
+  }
+
+  input,
+  select {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  article {
+    display: block;
+    width: 100%;
+    margin: 12px 0;
+  }
+}
+```
