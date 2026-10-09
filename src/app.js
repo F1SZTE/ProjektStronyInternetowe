@@ -1,6 +1,8 @@
 import { useState } from "react";
 import gamesData from "./data";
 import Dialog from "./Dialog";
+import GameForm from "./GameForm";
+import GameItem from "./GameItem";
 import "./App.css";
 
 export default function App() {
@@ -15,16 +17,15 @@ export default function App() {
     .filter(g => g.title.toLowerCase().includes(search.toLowerCase()))
     .filter(g => genre === "Wszystkie" || g.genre === genre);
 
-  list.sort((a,b) =>
-    sort === "title"
-      ? a.title.localeCompare(b.title)
-      : b.rating - a.rating
+  list.sort((a, b) => sort === "title"
+    ? a.title.localeCompare(b.title)
+    : b.rating - a.rating
   );
 
   const save = g => {
     setGames(g.id
       ? games.map(x => x.id === g.id ? g : x)
-      : [...games, {...g, id: Date.now()}]
+      : [...games, { ...g, id: Date.now() }]
     );
     setEdit(null);
   };
@@ -53,21 +54,29 @@ export default function App() {
 
       <button onClick={() => setEdit({})}>Dodaj</button>
 
+      {edit !== null && (
+        <GameForm
+          game={edit}
+          onSave={save}
+          onCancel={() => setEdit(null)}
+        />
+      )}
+
       {list.map(g => (
-        <article key={g.id}>
-          <h2>{g.title}</h2>
-          <p>{g.genre} | {g.year} | {g.rating}/10</p>
-          <button onClick={() => setEdit(g)}>Edytuj</button>
-          <button onClick={() => setDel(g.id)}>Usuń</button>
-        </article>
+        <GameItem
+          key={g.id}
+          game={g}
+          onEdit={setEdit}
+          onDelete={setDel}
+        />
       ))}
 
       {!list.length && <p>Brak wyników.</p>}
 
-      {del && (
+      {del !== null && (
         <Dialog
           title="Usuń grę"
-          message="Czy usunąć?"
+          message="Czy na pewno chcesz usunąć tę grę?"
           onCancel={() => setDel(null)}
           onConfirm={() => {
             setGames(games.filter(g => g.id !== del));
