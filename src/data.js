@@ -1,4 +1,4 @@
-const games = [
+const gamesData = [
   {
     id: 1,
     title: "Minecraft",
@@ -106,4 +106,4 @@ const games = [
   }
 ];
 
-export default games;
+export default gamesData;
